@@ -1,0 +1,8 @@
+.DS_Store
+Thumbs.db
+*.gitignore
+*.sw[ijklmnop]
+*~
+node_modules/
+vim/bundle
+private
