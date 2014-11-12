@@ -1,5 +1,5 @@
 #!/bin/sh
-
+# 生成各种软链
 USR_ETC_DIR=$( cd "$( dirname "$0" )" && pwd )
 load_conf() {
     local srcPrefix=$1
@@ -37,7 +37,8 @@ load_conf "$USR_ETC_DIR/" "$HOME/." \
     vimrc \
     gitconfig \
     screenrc \
-    bash_profile
+    bash_profile \
+    END_OF_ADD
 
 load_conf "$USR_ETC_DIR/vim/bundle/" "$HOME/.vim/bundle/" \
     nerdtree \
