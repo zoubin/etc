@@ -52,4 +52,7 @@ load_conf "$USR_ETC_DIR/vim/bundle/" "$HOME/.vim/bundle/" \
     vim-surround \
     vim-snippets \
     END_OF_ADD
-# vim-snippets
+
+load_conf "$USR_ETC_DIR/vim/colors/" "$HOME/.vim/colors/" \
+    solarized.vim \
+    END_OF_ADD

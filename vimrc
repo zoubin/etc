@@ -219,17 +219,6 @@ autocmd BufReadPost *
 " ======================================
 
 " ======================================
-" lint section begins
-" ======================================
-" 设置javascriptlint
-"autocmd FileType javascript set makeprg=jshint\ --config\ /opt/fe/fe.tools/jshint/jshintrc\ %
-"autocmd FileType javascript set errorformat=%f:\ line\ %l\\,\ col\ %c\\,\ %m
-" ======================================
-" lint section ends
-" ======================================
-
-
-" ======================================
 " searching section begins
 " ======================================
 " Search for selected text, forwards or backwards.
@@ -265,6 +254,7 @@ vnoremap <leader>g :call GitBlame()<CR>
 nnoremap <leader>g :exec '!fp=$(readlink -f %); cd $(dirname $fp); git blame -L '. line("."). ','. line("."). ' $(basename $fp); cd -'<CR>
 " ======================================
 
+" http://vim.wikia.com/wiki/Display_output_of_shell_commands_in_new_window
 function! s:RunShellCommand(cmdline)
     echo a:cmdline
     let expanded_cmdline = a:cmdline
@@ -282,6 +272,7 @@ function! s:RunShellCommand(cmdline)
     execute '$read !'. expanded_cmdline
     4
 endfunction
+
 "vnoremap K y:Shell git grep -n <C-R><C-R>"<CR><CR>/\<<C-R><C-R>"\><CR>""
 vnoremap K y:call GitGrepEx(1)<CR>
 "set grepprg=git\ grep\ -n
@@ -348,6 +339,7 @@ nmap <C-P> :tabprevious<CR>
 nnoremap <leader><space> :noh<CR>
 
 " insert mode shortcut
+" 模拟mac编辑方式
 inoremap <C-E> <Esc>A
 inoremap <C-A> <Esc>I
 inoremap <C-J> <Down>
