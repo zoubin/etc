@@ -269,29 +269,8 @@ hardstatus alwaysignore
 hardstatus alwayslastline '%{= k.}%-Lw%{=u .m}%n%f %t%{-}%+Lw %=%{= km}%D %c:%s %M %d, %Y'
 #hardstatus alwayslastline '%{= k.}%-Lw%{=u .m}%n%f %t%{-}%+Lw %=%{= km} %c:%s %d, %Y'
 
-chdir /Users/zoubin
-screen -t home
+# chdir dir
+# screen -t w.master
 
-chdir /Users/zoubin/usr/src/vagrant-www/projects/mt
-screen -t mt.m
-
-chdir /Users/zoubin/usr/src/vagrant-www/projects/mt
-screen -t mt.d
-
-chdir /Users/zoubin/usr/src/vagrant-www/projects/fecore
-screen -t fecore.m
-
-chdir /Users/zoubin/usr/src/vagrant-www/projects/fecore
-screen -t fecore.d
-
-chdir /Users/zoubin/usr/src/zoub.in
-screen -t blog.m
-
-chdir /Users/zoubin/usr/src/zoub.in
-screen -t blog.d
-
-chdir /Users/zoubin/usr/src/vagrant-www/projects/yui/3.16.0/build
-screen -t yui
-
-select 0
-chdir /Users/zoubin
+# select 0
+# chdir /home/zoubin02/mt
