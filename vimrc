@@ -337,6 +337,20 @@ nmap <C-N> :tabnext<CR>
 nmap <C-P> :tabprevious<CR>
 nnoremap <leader><space> :noh<CR>
 
+" 扩展%
+nnoremap g{ f{%
+nnoremap g[ f[%
+nnoremap g( f(%
+nnoremap g} f}%
+nnoremap g] f]%
+nnoremap g) f)%
+nnoremap gb{ F{%
+nnoremap gb[ F[%
+nnoremap gb( F(%
+nnoremap gb} F}%
+nnoremap gb] F]%
+nnoremap gb) F)%
+
 " insert mode shortcut
 " 模拟mac编辑方式
 inoremap <C-E> <Esc>A
