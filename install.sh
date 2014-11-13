@@ -1,59 +1,33 @@
 #!/bin/sh
-# 生成各种软链
 USR_ETC_DIR=$( cd "$( dirname "$0" )" && pwd )
-load_conf() {
-    local srcPrefix=$1
-    local targetPrefix=$2
-    shift
-    shift
-    local option="add"
-    while [[ $# -gt 0 ]]; do
-        case $1 in
-            -a)
-                option="add"
-                shift
-                ;;
-            -d)
-                option="remove"
-                shift
-                ;;
-            *)
-                if [[ $option == "add" ]]; then
-                    if [[ -e "$srcPrefix$1" && !(-e "$targetPrefix$1") ]]; then
-                        ln -s "$srcPrefix$1" "$targetPrefix$1"
-                    fi
-                else
-                    if [[ -e "$targetPrefix$1" ]]; then
-                        rm "$targetPrefix$1"
-                    fi
-                fi
-                shift
-                ;;
-        esac
-    done
+
+add_home_dot_conf() {
+    if [[ -f "$HOME/.$1" ]]; then
+        echo "$HOME/.$1 already exist."
+    else
+        if [[ -f "$USR_ETC_DIR/$1" ]]; then
+            echo "creating $HOME/.$1 ... "
+            echo "source $USR_ETC_DIR/$1" > "$HOME/.$1"
+            echo "done."
+        else
+            echo "$USR_ETC_DIR/$1 does not exist."
+        fi
+    fi
 }
-load_conf "$USR_ETC_DIR/" "$HOME/." \
-    bashrc \
-    vimrc \
-    gitconfig \
-    screenrc \
-    bash_profile \
-    END_OF_ADD
+add_home_dot_conf bashrc
+add_home_dot_conf bash_profile
+add_home_dot_conf gitconfig
+add_home_dot_conf screenrc
+add_home_dot_conf vimrc
+add_home_dot_conf vimconfig
 
-load_conf "$USR_ETC_DIR/vim/bundle/" "$HOME/.vim/bundle/" \
-    nerdtree \
-    vim-autoclose \
-    vim-markdown \
-    vim-stylus \
-    vim-javascript \
-    ultisnips \
-    html5.vim \
-    scss-syntax.vim \
-    emmet-vim \
-    vim-surround \
-    vim-snippets \
-    END_OF_ADD
-
-load_conf "$USR_ETC_DIR/vim/colors/" "$HOME/.vim/colors/" \
-    solarized.vim \
-    END_OF_ADD
+load_conf() {
+    if [[ -f "$1" ]]; then
+        echo "loading $1 ... "
+        . "$1"
+        echo "done."
+    else
+        echo "$1 does not exist."
+    fi
+}
+load_conf $HOME/.vimconfig
