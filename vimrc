@@ -14,8 +14,6 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'scrooloose/nerdtree'
-autocmd vimenter * NERDTree
-
 Plugin 'tpope/vim-surround'
 Plugin 'Townk/vim-autoclose'
 Plugin 'pangloss/vim-javascript'
@@ -40,7 +38,8 @@ Plugin 'honza/vim-snippets'
 " The NERD tree allows you to explore your filesystem and to open files and directories
 " https://github.com/scrooloose/nerdtree
 " h NERD_Tree.txt
-" map <leader>n :NERDTreeToggle<CR>
+autocmd vimenter * NERDTree
+map <leader>n :NERDTreeToggle<CR>
 " open a NERDTree automatically when vim starts up
 " let NERDTreeHighlightCursorline=1
 " close vim if the only window left open is a NERDTree
@@ -178,14 +177,14 @@ set showtabline=2
 "鼠标捕捉。设置为v时，可以copy on select
 set mouse=v
 " h comments
-" set comments=sl:/*,mb:*,ex:*/
+set comments=sl:/*,mb:*,ex:*/
 "底部标尺
 set ru
 "设置制表符、回车、空格的显示
 set listchars=tab:▸\ ,trail:·,eol:¬,nbsp:_
 " set list
 " 光标上下最小保留的屏幕行数
-set scrolloff=3
+set scrolloff=2
 " CTRL-H=BACKSPACE, 删除
 set backspace=indent,eol,start
 "打开语法高亮
