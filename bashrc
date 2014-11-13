@@ -3,7 +3,7 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
-USR_ETC_DIR=$( cd "$( dirname "$0" )" && pwd ) " )" )
+USR_ETC_DIR=$( cd "$( dirname "$BASH_SOURCE" )" && pwd )
 
 #############################
 # more
@@ -11,6 +11,8 @@ USR_ETC_DIR=$( cd "$( dirname "$0" )" && pwd ) " )" )
 load_conf() {
     if [[ -f "$USR_ETC_DIR/$1" ]]; then
         . "$USR_ETC_DIR/$1"
+    else
+        echo "$USR_ETC_DIR/$1 does not exist. "
     fi
 }
 load_conf git-completion.bash
@@ -24,10 +26,12 @@ function parse_git_current_branch {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/\* \(.*\)/\'$'\n''*\1/' -e 's/((/(/' -e 's/))/)/'
 }
 function parse_git_branches {
-    # won't work in mac os, there is a problem with paste usage
-    git branch --no-color 2> /dev/null | sed -e '/^\*/d' | paste -s
-
-    # git branch --no-color 2> /dev/null | sed -e '/^\*/d' | paste -d ' ' - - -
+    # in centos
+    git branch --no-color 2> /dev/null | sed -e '/^\*/d' | paste -s 2> /dev/null
+    if [[ $? -ne 0 ]]; then
+        # in macos
+        git branch --no-color 2> /dev/null | sed -e '/^\*/d' | paste -d ' ' - - -
+    fi
 }
 
 function proml() {
@@ -53,7 +57,7 @@ proml
 # alias
 #############################
 alias grep='grep --color=auto'
-alias ls='ls -GF --color=auto'
+alias ls='ls -GF'
 alias ll='ls -lh'
-alias la='ls -lha'
+alias la='ll -a'
 alias node='node --harmony'
