@@ -66,6 +66,10 @@ manage_bundles \
     vim-surround \
     vim-snippets
 
+manage_bundles -d \
+    ultisnips \
+    emmet-vim
+
 add_color() {
     local SRC_COLORS_DIR=$USR_ETC_DIR/vim/colors
     local TARGET_COLORS_DIR=$HOME/.vim/colors
