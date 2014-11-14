@@ -59,10 +59,8 @@ manage_bundles \
     vim-markdown \
     vim-stylus \
     vim-javascript \
-    ultisnips \
     html5.vim \
     scss-syntax.vim \
-    emmet-vim \
     vim-surround \
     vim-snippets
 
