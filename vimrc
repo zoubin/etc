@@ -137,6 +137,19 @@ nnoremap gb} F}%
 nnoremap gb] F]%
 nnoremap gb) F)%
 
+vnoremap g{ f{%
+vnoremap g[ f[%
+vnoremap g( f(%
+vnoremap g} f}%
+vnoremap g] f]%
+vnoremap g) f)%
+vnoremap gb{ F{%
+vnoremap gb[ F[%
+vnoremap gb( F(%
+vnoremap gb} F}%
+vnoremap gb] F]%
+vnoremap gb) F)%
+
 " insert mode shortcut
 " 模拟mac编辑方式
 inoremap <C-E> <Esc>A
