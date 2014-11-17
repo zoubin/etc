@@ -17,15 +17,4 @@ add_home_dot_conf() {
         shift
     done
 }
-add_home_dot_conf bashrc bash_profile gitconfig screenrc vimrc vimconfig
-
-load_conf() {
-    if [[ -f "$1" ]]; then
-        echo "loading $1 ... "
-        . "$1"
-        echo "done."
-    else
-        echo "$1 does not exist."
-    fi
-}
-load_conf $HOME/.vimconfig
+add_home_dot_conf bashrc bash_profile gitconfig screenrc vimrc
