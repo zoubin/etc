@@ -273,4 +273,4 @@ hardstatus alwayslastline '%{= k.}%-Lw%{=u .m}%n%f %t%{-}%+Lw %=%{= km}%D %c:%s 
 # screen -t w.master
 
 # select 0
-# chdir /home/zoubin02/mt
+# chdir /home/zoubin/
