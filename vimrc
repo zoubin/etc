@@ -105,7 +105,7 @@ let g:neocomplete#enable_at_startup = 1
 " Use smartcase.
 let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#sources#syntax#min_keyword_length = 2
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary.
@@ -394,31 +394,18 @@ nmap <C-P> :tabprevious<CR>
 nnoremap <leader><space> :noh<CR>
 
 " 扩展%
-nnoremap g{ f{%
-nnoremap g[ f[%
-nnoremap g( f(%
-nnoremap g} f}%
-nnoremap g] f]%
-nnoremap g) f)%
-nnoremap gb{ F{%
-nnoremap gb[ F[%
-nnoremap gb( F(%
-nnoremap gb} F}%
-nnoremap gb] F]%
-nnoremap gb) F)%
-
-vnoremap g{ f{%
-vnoremap g[ f[%
-vnoremap g( f(%
-vnoremap g} f}%
-vnoremap g] f]%
-vnoremap g) f)%
-vnoremap gb{ F{%
-vnoremap gb[ F[%
-vnoremap gb( F(%
-vnoremap gb} F}%
-vnoremap gb] F]%
-vnoremap gb) F)%
+noremap g{ f{%
+noremap g[ f[%
+noremap g( f(%
+noremap g} f}%
+noremap g] f]%
+noremap g) f)%
+noremap gb{ F{%
+noremap gb[ F[%
+noremap gb( F(%
+noremap gb} F}%
+noremap gb] F]%
+noremap gb) F)%
 
 " insert mode shortcut
 " 模拟mac编辑方式
