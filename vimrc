@@ -60,7 +60,7 @@ let g:user_emmet_leader_key='<leader>t'
 " The NERD tree allows you to explore your filesystem and to open files and directories
 " Plugin 'scrooloose/nerdtree'
 " open a NERDTree automatically when vim starts up
-autocmd vimenter * NERDTree
+" autocmd vimenter * NERDTree
 map <leader>n :NERDTreeToggle<CR>
 " h NERD_Tree.txt
 " https://github.com/scrooloose/nerdtree
