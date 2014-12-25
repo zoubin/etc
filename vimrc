@@ -393,6 +393,10 @@ nmap <C-N> :tabnext<CR>
 nmap <C-P> :tabprevious<CR>
 nnoremap <leader><space> :noh<CR>
 
+" 末尾添加分号
+nnoremap <leader>a m`A;<esc>``
+inoremap <leader>a <esc>m`A;<esc>``a
+
 " 扩展%
 noremap g{ f{%
 noremap g[ f[%

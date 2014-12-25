@@ -30,7 +30,7 @@ function parse_git_branches {
     git branch --no-color 2> /dev/null | sed -e '/^\*/d' | paste -s 2> /dev/null
     if [[ $? -ne 0 ]]; then
         # in macos
-        git branch --no-color 2> /dev/null | sed -e '/^\*/d' | paste -d ' ' - - -
+        git branch --no-color 2> /dev/null | sed -e '/^\*/d' | paste -d ' ' - - - - - - -
     fi
 }
 
