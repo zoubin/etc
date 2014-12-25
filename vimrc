@@ -31,10 +31,11 @@ Plugin 'othree/html5.vim'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'wavded/vim-stylus'
 " Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+" Plugin 'honza/vim-snippets'
 Plugin 'Shougo/neocomplete'
 Plugin 'Shougo/neosnippet'
-" Plugin 'Shougo/neosnippet-snippets'
+Plugin 'Shougo/neosnippet-snippets'
+Plugin 'vim-scripts/matchit.zip'
 
 " git repos on your local machine (i.e. when working on your own plugin)
 " Plugin 'file:///home/gmarik/path/to/plugin'
