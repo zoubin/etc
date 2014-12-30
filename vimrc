@@ -258,13 +258,9 @@ function! GitGrepEx(isLiteral)
     silent call s:RunShellCommand('git grep -n ' . target)
     call setreg('/', kw, getregtype('/'))
 
-    if newreporoot == reporoot
-    " in the same repo
-    else
-    " not in the same repo
-        let abspath = getcwd()
-        exec '4,$s:^:' . abspath . '/'
-    endif
+    let abspath = getcwd()
+    exec '4,$s:^:' . abspath . '/'
+    exec 'normal 4G'
     exec 'cd ' . oldpwd
 endfunction
 
