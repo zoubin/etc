@@ -51,6 +51,15 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 " ------------------------ </vundle>
 
+" <vim-git> ------------------------
+" Plugin 'zoubin/vim-git'
+" https://github.com/zoubin/vim-git
+noremap <unique> <leader>g :call git#BlameRange()<CR>
+vnoremap <unique> K y:call git#GrepText(getreg('"'))<CR>
+nnoremap <unique> K :call git#GrepCursorWord()<CR>
+nnoremap <unique> <C-T> ^<C-W>F
+" ------------------------ </vim-git>
+
 " <emmet-vim> ------------------------
 let g:user_emmet_leader_key='<leader>t'
 " ------------------------ </emmet-vim>
