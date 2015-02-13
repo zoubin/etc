@@ -31,7 +31,7 @@ Plugin 'othree/html5.vim'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'wavded/vim-stylus'
 " Plugin 'SirVer/ultisnips'
-" Plugin 'honza/vim-snippets'
+Plugin 'honza/vim-snippets'
 Plugin 'Shougo/neocomplete'
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
@@ -54,10 +54,10 @@ filetype plugin indent on    " required
 " <vim-git> ------------------------
 " Plugin 'zoubin/vim-git'
 " https://github.com/zoubin/vim-git
-noremap <unique> <leader>g :call git#BlameRange()<CR>
-vnoremap <unique> K y:call git#GrepText(getreg('"'))<CR>
-nnoremap <unique> K :call git#GrepCursorWord()<CR>
-nnoremap <unique> <C-T> ^<C-W>F
+noremap <leader>g :call git#BlameRange()<CR>
+vnoremap K y:call git#GrepText(getreg('"'))<CR>
+nnoremap K :call git#GrepCursorWord()<CR>
+nnoremap <C-T> ^<C-W>F
 " ------------------------ </vim-git>
 
 " <emmet-vim> ------------------------
@@ -320,14 +320,16 @@ vnoremap > >gv
 " 选中后put时再复制put的内容，需要多次选中替换时有用
 vnoremap p pgvy
 
+nnoremap Y y$
+
 " 选中put的文本（整行）
 nnoremap <leader>v V`]
 " 删除行末空格
 nnoremap <silent><leader>w :%s/\s\+$//<CR>:let @/=''<CR>
 " 切换tab
-nmap <C-N> :tabnext<CR>
-nmap <C-P> :tabprevious<CR>
 nnoremap <leader><space> :noh<CR>
+nnoremap <C-N> :tabnext<CR>
+nnoremap <C-P> :tabprevious<CR>
 
 " 末尾添加分号
 nnoremap <leader>a m`A;<esc>``
