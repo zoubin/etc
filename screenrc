@@ -109,7 +109,7 @@ bind } history
 
 # open new window in unloggin state, depress the dollar sign
 bind c
-bind c screen -n
+bind c screen
 
 #bind X lockscreen
 bind ^x stuff "screen ^M"
