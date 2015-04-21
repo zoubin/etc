@@ -350,14 +350,14 @@ noremap gb] F]%
 noremap gb) F)%
 
 " insert mode shortcut
-" 模拟mac编辑方式
-inoremap <C-E> <Esc>A
-inoremap <C-A> <Esc>I
-inoremap <C-J> <Down>
-inoremap <C-K> <Up>
-inoremap <C-B> <Left>
-inoremap <C-F> <Right>
-inoremap <C-D> <DELETE>
+" 模拟mac编辑方式 deprecated use `CTRL-o {normal command}` instead
+"inoremap <C-E> <Esc>A
+"inoremap <C-A> <Esc>I
+"inoremap <C-J> <Down>
+"inoremap <C-K> <Up>
+"inoremap <C-B> <Left>
+"inoremap <C-F> <Right>
+"inoremap <C-D> <DELETE>
 
 " command line edit
 cnoremap <C-A> <Home>
