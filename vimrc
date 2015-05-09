@@ -26,7 +26,10 @@ Plugin 'tpope/vim-surround'
 " Plugin 'Townk/vim-autoclose'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'pangloss/vim-javascript'
-Plugin 'gabrielelana/vim-markdown'
+" Plugin 'gabrielelana/vim-markdown'
+Plugin 'vim-scripts/SyntaxRange'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 Plugin 'othree/html5.vim'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'wavded/vim-stylus'
@@ -319,8 +322,6 @@ vnoremap < <gv
 vnoremap > >gv
 " 选中后put时再复制put的内容，需要多次选中替换时有用
 vnoremap p pgvy
-
-nnoremap Y y$
 
 " 选中put的文本（整行）
 nnoremap <leader>v V`]
