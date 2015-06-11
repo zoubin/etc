@@ -34,7 +34,7 @@ Plugin 'othree/html5.vim'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'wavded/vim-stylus'
 " Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+" Plugin 'honza/vim-snippets'
 Plugin 'Shougo/neocomplete'
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
@@ -281,7 +281,9 @@ set wildmenu
 
 " solarized
 set background=dark
-colorscheme solarized
+if $VIMCOLORSCHEME
+    colorscheme $VIMCOLORSCHEME
+endif
 
  " Store swap files in fixed location, not current directory.
  set dir=~/.vimswap//,/var/tmp//,/tmp//,.

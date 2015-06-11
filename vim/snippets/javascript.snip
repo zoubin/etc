@@ -1,0 +1,140 @@
+snippet :f
+options head
+  ${1:#:method_name}: function(${2:#:attribute}) {
+    ${0:TARGET}
+  }
+
+snippet function
+abbr    func
+options word
+  function ${1:#:fn}(${2:#:argument}) {
+    ${3:TARGET}
+  }
+
+snippet proto
+options head
+  ${1:#:class_name}.prototype.${2:#:method_name} = function(${3:#:first_argument}) {
+    ${0:TARGET}
+  };
+
+
+snippet vf
+options word
+  var ${1:fn} = function $1(${2}) {
+      ${0}
+  };
+
+snippet (f
+options word
+  (function(${1}) {
+      ${0}
+  }(${2}));
+
+snippet if
+options head
+  if (${1:true}) {
+    ${0:TARGET}
+  }
+
+snippet if-else
+abbr ife
+options head
+  if (${1:#:condition}) {
+    ${0:TARGET}
+  } else {
+  }
+
+snippet for
+options head
+  for (var ${1:i} = 0, ${2:len} = ${3:Things}.length; $1 < $2; ++$1) {
+    ${0:TARGET}
+  }
+
+snippet forr
+options head
+  for (var ${1:i} = ${2:Things}.length - 1; $1 >= ${3:0}; --$1) {
+    ${0:TARGET}
+  }
+
+snippet forin
+options head
+  for (var ${1:i} in ${2:#:Things}) {
+    ${0:TARGET}
+  }
+
+snippet key
+options word
+  ${1:key}: ${2:$1}${3:#:,}
+
+snippet setTimeout-function
+options head
+  setTimeout(function() {
+      ${0}
+  }, ${1:10});
+
+snippet console-log
+alias cl
+options head
+  console.log(${0:TARGET});
+
+snippet switch
+alias sw
+  switch (${1:expression}) {
+      case '${3:case}':
+          ${4}
+          break;
+      ${0}
+      default:
+          ${2}
+  }
+# case
+snippet case
+  case '${1:case}':
+      ${2}
+      break;
+  ${0}
+# try
+snippet try
+  try {
+      ${1}
+  } catch (${2:e}) {
+      ${0:/* handle error */}
+  }
+snippet wh
+  while (${1:/* condition */}) {
+      ${0}
+  }
+
+snippet /**
+  /**
+   * ${0:description}
+   *
+   */
+snippet @par
+  @param {${1:type}} ${2:name} ${0:description}
+snippet @ret
+  @return {${1:type}} ${0:description}
+
+# module exports
+snippet ex
+  module.exports = ${1};
+# require
+snippet re
+  var ${1:path} = require('$1${0:}');
+
+# promise
+snippet promise
+alias prom
+  new Promise(function(${1:resolve}, ${2:reject}) {
+      ${3}
+  })${0}
+
+
+# test
+snippet test
+options head
+  test('${1:#:title}', function(t) {
+      ${0:TARGET}
+      ${2:t.end();}
+  });
+
