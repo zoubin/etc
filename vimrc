@@ -281,7 +281,7 @@ set wildmenu
 
 " solarized
 set background=dark
-if $VIMCOLORSCHEME
+if $VIMCOLORSCHEME != ''
     colorscheme $VIMCOLORSCHEME
 endif
 
