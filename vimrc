@@ -41,6 +41,7 @@ Plugin 'Shougo/neosnippet-snippets'
 Plugin 'vim-scripts/matchit.zip'
 
 Plugin 'zoubin/vim-git'
+Plugin 'zoubin/vim-tabstop'
 
 " git repos on your local machine (i.e. when working on your own plugin)
 " Plugin 'file:///home/gmarik/path/to/plugin'
@@ -246,7 +247,7 @@ set tabstop=4
 set shiftwidth=4
 "编辑插入tab时，把tab算作的空格数
 set softtabstop=4
-"缩进使用空格
+"Insert模式下插入<Tab>时用space替代。相关缩进也使用space
 set expandtab
 "自动缩进
 set autoindent
@@ -372,4 +373,3 @@ cnoremap <C-D> <DELETE>
 " ======================================
 " key mapping section ends
 " ======================================
-

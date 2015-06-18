@@ -15,20 +15,20 @@ snippet proto
 options head
   ${1:#:class_name}.prototype.${2:#:method_name} = function(${3:#:first_argument}) {
     ${0:TARGET}
-  };
+  }
 
 
 snippet vf
 options word
   var ${1:fn} = function $1(${2}) {
       ${0}
-  };
+  }
 
 snippet (f
 options word
   (function(${1}) {
       ${0}
-  }(${2}));
+  }(${2}))
 
 snippet if
 options head
@@ -70,19 +70,19 @@ snippet setTimeout-function
 options head
   setTimeout(function() {
       ${0}
-  }, ${1:10});
+  }, ${1:10})
 
 snippet console-log
 alias cl
 options head
-  console.log(${0:TARGET});
+  console.log(${0:TARGET})
 
 snippet switch
 alias sw
   switch (${1:expression}) {
       case '${3:case}':
           ${4}
-          break;
+          break
       ${0}
       default:
           ${2}
@@ -91,7 +91,7 @@ alias sw
 snippet case
   case '${1:case}':
       ${2}
-      break;
+      break
   ${0}
 # try
 snippet try
@@ -117,10 +117,10 @@ snippet @ret
 
 # module exports
 snippet ex
-  module.exports = ${1};
+  module.exports = ${1}
 # require
 snippet re
-  var ${1:path} = require('$1${0:}');
+  var ${1:path} = require("$1${0:}")
 
 # promise
 snippet promise
@@ -135,6 +135,6 @@ snippet test
 options head
   test('${1:#:title}', function(t) {
       ${0:TARGET}
-      ${2:t.end();}
-  });
+      ${2:t.end()}
+  })
 
