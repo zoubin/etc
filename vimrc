@@ -41,6 +41,7 @@ Plugin 'Shougo/neosnippet-snippets'
 Plugin 'vim-scripts/matchit.zip'
 
 Plugin 'zoubin/vim-git'
+let g:tabstop_alternatives = [2, 4]
 Plugin 'zoubin/vim-tabstop'
 
 " git repos on your local machine (i.e. when working on your own plugin)
@@ -241,14 +242,6 @@ set fileencodings=utf-8,gbk
 "文件默认格式unix
 set ff=unix
 
-" 缩进为4个空格宽度
-set tabstop=4
-"自动缩进使用的空格数
-set shiftwidth=4
-"编辑插入tab时，把tab算作的空格数
-set softtabstop=4
-"Insert模式下插入<Tab>时用space替代。相关缩进也使用space
-set expandtab
 "自动缩进
 set autoindent
 "显示标签栏 0: 从不 1: 大于1个时显示 2: 总是
