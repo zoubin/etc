@@ -83,18 +83,13 @@ options head
 snippet switch
 alias sw
   switch (${1:expression}) {
-  case '${3:case}':
-      ${4}
-      break;
   ${0}
-  default:
-      ${2}
   }
 # case
 snippet case
-  case '${1:case}':
+  case '${1}':
       ${2}
-      break
+      break;
   ${0}
 # try
 snippet try
@@ -121,6 +116,9 @@ snippet @ret
 # module exports
 snippet ex
   module.exports = ${1};
+# import
+snippet im
+  import ${1:path} from '$1${0:}';
 # require
 snippet re
   var ${1:path} = require('$1${0:}');
