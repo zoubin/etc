@@ -41,7 +41,6 @@ Plugin 'Shougo/neosnippet-snippets'
 Plugin 'vim-scripts/matchit.zip'
 
 Plugin 'zoubin/vim-git'
-let g:tabstop_alternatives = [2, 4]
 Plugin 'zoubin/vim-tabstop'
 
 " git repos on your local machine (i.e. when working on your own plugin)
