@@ -71,7 +71,11 @@ export VIMCOLORSCHEME=solarized
 ```
 
 If we want to use `default` for the HotKey Window,
-open the HotKey Window profile general panel setting,
+
+open the HotKey Window profile general setting panel,
+
+`Preferences->Profiles->Hotkey Window->General`
+
 select `Login shell` in `Command` field,
 and put the following text into the `Send text at start` input:
 
