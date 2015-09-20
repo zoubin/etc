@@ -1,4 +1,12 @@
-etc
-===
+# etc
 
-管理各种配置
+配置管理
+
+## vim
+
+### filetype
+
+```sh
+ln -s filetype.vim $HOME/.vim/filetype.vim
+```
+
