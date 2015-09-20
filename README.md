@@ -4,6 +4,16 @@ To manage configure files.
 
 Suppose this repo is cloned to `$HOME/etc`.
 
+## TOC
+
+- [bash](#bash)
+- [screen](#screen)
+- [git](#git)
+- [vim](#vim)
+  - [vimrc](#vimrc)
+  - [filetype](#filetype)
+  - [colorscheme](#colorscheme)
+
 ## bash
 
 In `$HOME/.bashrc`
