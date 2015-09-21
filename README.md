@@ -58,8 +58,10 @@ source $HOME/etc/dotfiles/vimrc
 ### filetype
 
 ```sh
-ln -s filetype.vim $HOME/.vim/filetype.vim
+ln -s $HOME/etc/vim/filetype.vim $HOME/.vim/filetype.vim
 ```
+
+Right now, files with extension `.es6` are recognized as type `javascript`.
 
 ### colorscheme
 
