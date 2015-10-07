@@ -1,34 +1,36 @@
-snippet :fun
+snippet :func
 options head
   ${1:#:method_name}: function(${2:#:attribute}) {
     ${0:TARGET}
   },
-
-snippet function
-abbr    func
+snippet func
 options word
   function ${1:#:fn}(${2:#:argument}) {
     ${3:TARGET}
+  }
+snippet :afunc
+options head
+  ${1:#:method_name}: (${2:#:attribute}) => {
+    ${0:TARGET}
+  },
+snippet afunc
+options word
+  (${1:#:argument}) => {
+    ${2:TARGET}
   }
 
 snippet proto
 options head
   ${1:#:class_name}.prototype.${2:#:method_name} = function(${3:#:first_argument}) {
     ${0:TARGET}
-  };
+  }
 
-
-snippet vf
-options word
-  var ${1:fn} = function $1(${2}) {
-      ${0}
-  };
 
 snippet fcl
 options word
-  (function ${1:#:name}(${2}) {
-      ${0}
-  }(${3}));
+  ;(function ${1:#:name}(${2}) {
+    ${0}
+  })(${3})
 
 snippet if
 options word
@@ -65,20 +67,16 @@ options head
     }
   }
 
-snippet key
-options word
-  ${1:key}: ${2:$1},
-
 snippet setTimeout-function
 options head
   setTimeout(function() {
-      ${0}
-  }, ${1:10});
+    ${0}
+  }, ${1:10})
 
 snippet console-log
 alias cl
 options head
-  console.log(${0:TARGET});
+  console.log(${0:TARGET})
 
 snippet switch
 alias sw
@@ -89,18 +87,18 @@ alias sw
 snippet case
   case '${1}':
       ${2}
-      break;
+      break
   ${0}
 # try
 snippet try
   try {
-      ${1}
+    ${1}
   } catch (${2:e}) {
-      ${0:/* handle error */}
+    ${0:/* handle error */}
   }
 snippet wh
   while (${1:/* condition */}) {
-      ${0}
+    ${0}
   }
 
 snippet /**
@@ -115,27 +113,36 @@ snippet @ret
 
 # module exports
 snippet ex
-  module.exports = ${1};
+  module.exports = ${1}
 # import
 snippet im
-  import ${1:path} from '$1${0:}';
+  import ${1:path} from '${0:$1}'
 # require
 snippet re
-  var ${1:path} = require('$1${0:}');
+  var ${1:path} = require('$1${0:}')
 
 # promise
 snippet promise
 alias prom
   new Promise(function(${1:resolve}, ${2:reject}) {
-      ${3}
-  })${0}
+    ${3}
+  })
+snippet apromise
+alias aprom
+  new Promise((${1:resolve}, ${2:reject}) => {
+    ${3}
+  })
 
 
 # test
 snippet test
 options head
   test('${1:#:title}', function(t) {
-      ${0:TARGET}
-      ${2:t.end();}
-  });
+    ${0:TARGET}
+  })
+snippet atest
+options head
+  test('${1:#:title}', (t) => {
+    ${0:TARGET}
+  })
 
