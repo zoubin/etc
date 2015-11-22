@@ -73,6 +73,11 @@ options head
     ${0}
   }, ${1:10})
 
+snippet star-line
+alias starl
+options head
+  console.log('*'.repeat(80))
+
 snippet console-log
 alias cl
 options head
@@ -116,7 +121,7 @@ snippet ex
   module.exports = ${1}
 # import
 snippet im
-  import ${1:path} from '${0:$1}'
+  import ${1:path} from '${2:$1}${0}'
 # require
 snippet re
   var ${1:path} = require('$1${0:}')

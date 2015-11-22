@@ -36,6 +36,7 @@ function parse_git_branches {
 
 function proml() {
 # refer to https://wiki.archlinux.org/index.php/Color_Bash_Prompt
+# refer to https://en.wikipedia.org/wiki/ANSI_escape_code for more escape sequence information
     local RED="\[\033[0;31m\]"
     local GREEN="\[\033[0;32m\]"
     local PURPLE="\[\033[0;35m\]"

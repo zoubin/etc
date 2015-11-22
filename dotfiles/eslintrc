@@ -34,7 +34,7 @@ rules:
   no-control-regex: 2
   no-debugger: 2
   # code style
-  consistent-return: 2
+  consistent-return: 0
   curly: 2
   default-case: 2
   dot-notation: 2
