@@ -29,15 +29,20 @@ Plugin 'pangloss/vim-javascript'
 " Plugin 'gabrielelana/vim-markdown'
 Plugin 'vim-scripts/SyntaxRange'
 Plugin 'godlygeek/tabular'
+
+let g:vim_markdown_conceal = 0
 Plugin 'plasticboy/vim-markdown'
+
+" Plugin 'leshill/vim-json'
 Plugin 'othree/html5.vim'
-Plugin 'cakebaker/scss-syntax.vim'
+" Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'wavded/vim-stylus'
 " Plugin 'SirVer/ultisnips'
 " Plugin 'honza/vim-snippets'
-Plugin 'Shougo/neocomplete'
+" Plugin 'Shougo/neocomplete'
 Plugin 'Shougo/neosnippet'
-Plugin 'Shougo/neosnippet-snippets'
+" Plugin 'Shougo/neosnippet-snippets'
+Plugin 'zoubin/neosnippet-snippets'
 Plugin 'vim-scripts/matchit.zip'
 
 Plugin 'zoubin/vim-git'
