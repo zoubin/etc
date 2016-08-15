@@ -1,0 +1,48 @@
+#! /usr/bin/env sh
+# @link http://www.jonmaddox.com/2008/03/13/show-your-git-branch-name-in-your-prompt/
+
+function parse_git_current_branch {
+  #local br=`git rev-parse --abbrev-ref HEAD 2> /dev/null |xargs echo -n`
+  #if [[ $br == "" ]]; then
+  #  echo ""
+  #else
+  #  echo " ($br)"
+  #fi
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/' -e 's/((/(/' -e 's/))/)/'
+  #git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/\* \(.*\)/\'$'\n''*\1/' -e 's/((/(/' -e 's/))/)/'
+}
+
+#function parse_git_branches {
+#  # in centos
+#  git branch --no-color 2> /dev/null | sed -e '/^\*/d' | paste -s 2> /dev/null
+#  if [[ $? -ne 0 ]]; then
+#    # in macos
+#    git branch --no-color 2> /dev/null | sed -e '/^\*/d' | paste -d ' ' - - - - - - -
+#  fi
+#}
+
+function proml() {
+# refer to https://wiki.archlinux.org/index.php/Color_Bash_Prompt
+# refer to https://en.wikipedia.org/wiki/ANSI_escape_code for more escape sequence information
+  local RED="\[\033[0;31m\]"
+  local GREEN="\[\033[0;32m\]"
+  local PURPLE="\[\033[0;35m\]"
+  local COLOR_END="\[\033[0m\]"
+  local YELLOW="\[\033[0;33m\]"
+  local CYAN="\[\033[0;36m\]"
+
+  # http://en.wikipedia.org/wiki/List_of_emoticons
+  local MARK_W="\342\234\227"
+  local MARK_R="\342\234\223"
+  # local PREFIX="⌘"
+  local PREFIX=""
+
+  # https://bbs.archlinux.org/viewtopic.php?pid=1156660#p1156660
+  PS1="\$(if [[ \$? == 0 ]]; then echo \"$GREEN$MARK_R\"; else echo \"$RED$MARK_W\"; fi)"
+  PS1+=" $YELLOW\u@$YELLOW\h$COLOR_END:$CYAN\w$COLOR_END"
+  PS1+="$GREEN\$(parse_git_current_branch)$COLOR_END"
+  PS1+=" $PURPLE\$(node -v)$COLOR_END"
+  PS1+="\n"
+  PS1+="$PURPLE$PREFIX$COLOR_END "
+}
+proml
