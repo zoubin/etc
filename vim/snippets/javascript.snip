@@ -2,6 +2,10 @@ snippet cl
 options word
   console.log(${1})
 
+snippet use
+options head
+  'use strict'
+
 snippet func
 options word
   function ${1:#:fn}(${2:#:argument}) {
@@ -74,10 +78,10 @@ snippet wh
     ${0}
   }
 
-snippet /**
+snippet /*
+options head
   /**
    * ${0:description}
-   *
    */
 
 snippet @par

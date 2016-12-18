@@ -47,7 +47,7 @@ endif
 
 " don't use syntax folding, it could be very slow
 set foldmethod=indent
-set foldlevelstart=2
+set foldlevelstart=99
 let javaScript_fold=1         " JavaScript
 "let perl_fold=1               " Perl
 let php_folding=1             " PHP
