@@ -156,6 +156,10 @@ if has("persistent_undo")
   set undofile
 endif
 
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'NSIS-syntax-highlighting'
+Plugin 'posva/vim-vue'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required

@@ -19,13 +19,15 @@ Suppose this repo is cloned to `$HOME/etc`.
 In `$HOME/.bashrc`
 
 ```sh
-source $HOME/etc/dotfiles/bashrc
+source $HOME/etc/bashrc
+
 ```
 
 In `$HOME/.bash_profile`
 
 ```sh
-source $HOME/etc/dotfiles/bash_profile
+source $HOME/etc/bash_profile
+
 ```
 
 ## screen
@@ -33,7 +35,7 @@ source $HOME/etc/dotfiles/bash_profile
 In `$HOME/.screenrc`:
 
 ```sh
-source $HOME/etc/dotfile/screenrc
+source $HOME/etc/screenrc
 ```
 
 
@@ -43,7 +45,7 @@ In `$HOME/.gitconfig`, set the `[include]` field:
 
 ```
 [include]
-    path = etc/dotfiles/gitconfig
+    path = etc/gitconfig
 ```
 
 ## vim
@@ -52,7 +54,7 @@ In `$HOME/.gitconfig`, set the `[include]` field:
 In `$HOME/.vimrc`:
 
 ```sh
-source $HOME/etc/dotfiles/vimrc
+source $HOME/etc/vimrc
 ```
 
 ### filetype
@@ -67,7 +69,7 @@ Right now, files with extension `.es6` are recognized as type `javascript`.
 
 Here is an example to use different colorschemes in multiple iterm2 windows:
 
-In `dotfiles/vimrc` we already have:
+In `vimrc` we already have:
 
 ```vim
 set background=dark
