@@ -10,7 +10,8 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+" Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -29,6 +30,8 @@ let javascript_enable_domhtmlcss = 1
 
 Plugin 'mxw/vim-jsx'
 let g:jsx_ext_required = 0
+
+Plugin 'leafgarland/typescript-vim'
 
 " :Tabu /=
 Plugin 'godlygeek/tabular'

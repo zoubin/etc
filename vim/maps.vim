@@ -7,6 +7,9 @@ nnoremap <silent> ,b :CommandTBuffer<CR>
 nnoremap <silent> ,j :CommandTJump<CR>
 nnoremap <silent> ,r :CommandTMRU<CR>
 
+nnoremap [f :bprevious<CR>
+nnoremap ]f :bnext<CR>
+
 nnoremap [c :cprevious<CR>
 nnoremap ]c :cnext<CR>
 if !exists('autocommands_loaded')
