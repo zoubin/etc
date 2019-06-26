@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# 个人在某段时间内的代码总变动量
+# git contrib --since="2019-02-01" --until="2019-02-28"
+
+while (( "$#" )); do
+  case "$1" in
+    --)
+      shift
+      break
+      ;;
+    *)
+      log_args+=( $1 )
+      shift
+      ;;
+  esac
+done
+
+ignores=(`codeignore`)
+
+git log --no-merges --pretty="format:email: %ae" --numstat "${log_args[@]}" -- "$@" "${ignores[@]}"\
+  | awk '
+  /^email:/ { email = $2 }
+  /^[0-9]/ { ins[email] += $1; del[email] += $2 }
+  END { for (email in ins) print ins[email] "\t" del[email] "\t" email }
+  '

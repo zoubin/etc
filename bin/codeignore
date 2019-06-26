@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+echo '
+  :(exclude)example/*
+  :(exclude)_build/*
+  :(exclude)*dist/*
+  :(exclude)*package-lock.json
+  :(exclude)*yarn.lock
+  :(exclude)*.min.*
+'

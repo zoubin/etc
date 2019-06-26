@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+
+# -n <待求和的列>
+# -k <分组求和的key>
+
+until [[ -z "$1" ]]; do
+  if [[ $1 == "-k" ]]; then
+    shift
+    [[ $1 > 0 ]] && key_col=$1
+  else
+    if [[ $1 == "-n" ]]; then
+      shift
+      [[ $1 > 0 ]] && data_cols+=( $1 )
+    fi
+  fi
+  shift
+done
+
+if [[ ${#data_cols[@]} == 0 ]];then
+  data_cols+=( 1 )
+fi
+
+no_key() {
+  n=1
+  for j in ${data_cols[@]}; do
+    src+="sum[$n] += \$$j;"
+    let "n = $n + 1"
+  done
+
+  src='{'"$src"'} END { for (i=1; i<'"$n"';i++) printf("%d\t", sum[i]); printf("\n") }'
+  awk "$src"
+}
+
+has_key() {
+  n=1
+  for j in ${data_cols[@]}; do
+    src+="add(sum, \$$key_col, \$$j, $j);"
+    let "n = $n + 1"
+  done
+
+  join='function join(arr)
+  {
+    n='"$n"';
+    if (n == 2) {
+      return arr[1];
+    }
+    res = arr[1];
+    for (j = 2; j < n; j++) res = res "\t" arr[j];
+    return res;
+  }'
+
+  add='function add(sum, k, val, i)
+  {
+    split(sum[k], arr, "\t");
+    arr[i] += val;
+    sum[k] = join(arr);
+  }'
+  
+  src="$join $add { $src } END { for (key in sum) print sum[key] \"\t\" key; }"
+  awk "$src"
+}
+
+if [[ -nz "$key_col" ]]; then
+  has_key
+else
+  no_key
+fi

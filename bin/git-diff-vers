@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# 某段时间内版本迭代的代码变动量——只计算了版本之间的对比，不是所有commit的对比
+# git diff-vers "v[0-9]*" --since="2019-03-01" --until="2019-03-31" 
+
+while (( "$#" )); do
+  case "$1" in
+    --)
+      shift
+      break
+      ;;
+    *)
+      tag_args+=( $1 )
+      shift
+      ;;
+  esac
+done
+
+ignores=(`codeignore`)
+
+git tag-ls "${tag_args[@]}" | pair | xargs -L 1 -J {} git diff-stat {} -- "$@" "${ignores[@]}" | colsum -n 1 -n 2

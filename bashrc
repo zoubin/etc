@@ -15,4 +15,6 @@ for file in `brew --prefix`/etc/bash_completion.d/{brew,git-completion.bash}; do
   [ -r "$file"  ] && [ -f "$file"  ] && source "$file";
 done;
 
+[ -f `brew --prefix`/etc/bash_completion ] && . `brew --prefix`/etc/bash_completion
+
 unset file

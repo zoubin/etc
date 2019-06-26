@@ -77,7 +77,7 @@ au BufNewFile,BufRead *.css,*.scss,*.sass call gotofile#SetOptions({
 \ 'moduleDirectory': ['node_modules', 'web_modules']
 \ })
 
-Plugin 'vim-scripts/matchit.zip'
+"Plugin 'vim-scripts/matchit.zip'
 "let b:match_ignorecase = 1
 
 Plugin 'tpope/vim-surround'
