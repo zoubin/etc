@@ -28,6 +28,7 @@ set backspace=indent,eol,start
 syntax enable
 " 当前行背景
 set cursorline
+set cursorcolumn
 "搜索时高亮显示结果
 set hls
 "输入搜索命令时，显示目前输入的模式的匹配位置

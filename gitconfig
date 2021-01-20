@@ -1,19 +1,18 @@
 [core]
   quotepath = false
-[core]
 	filemode = false
 [color]
-    ui = auto
-    branch = auto
-    status = auto
+  ui = auto
+  branch = auto
+  status = auto
 [alias]
-    st = status
-    di = diff
-    ci = commit
-    co = checkout
-    br = branch
-    unstage = reset HEAD --
-    last = log -1 HEAD
-    hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+  st = status
+  di = diff
+  ci = commit
+  co = checkout
+  br = branch
+  unstage = reset HEAD --
+  last = log -1 HEAD
+  hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
 [push]
-    default = tracking
+  default = tracking

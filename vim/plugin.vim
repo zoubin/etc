@@ -66,7 +66,7 @@ Plugin 'zoubin/vim-git'
 Plugin 'zoubin/vim-tabstop'
 
 Plugin 'zoubin/vim-gotofile'
-let g:gotofile_extensions = ['js', 'jsx', 'es6', 'css', 'scss', 'sass']
+let g:gotofile_extensions = ['js', 'ts', 'jsx', 'es6', 'css', 'scss', 'sass']
 au BufNewFile,BufRead *.js,*.jsx,*.es6 call gotofile#SetOptions({
 \ 'moduleDirectory': ['node_modules', 'web_modules']
 \ })
@@ -159,8 +159,8 @@ if has("persistent_undo")
   set undofile
 endif
 
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'NSIS-syntax-highlighting'
+"Plugin 'kchmck/vim-coffee-script'
+"Plugin 'NSIS-syntax-highlighting'
 Plugin 'posva/vim-vue'
 
 " All of your Plugins must be added before the following line

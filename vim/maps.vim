@@ -6,6 +6,7 @@ nnoremap <silent> ,t :CommandT<CR>
 nnoremap <silent> ,b :CommandTBuffer<CR>
 nnoremap <silent> ,j :CommandTJump<CR>
 nnoremap <silent> ,r :CommandTMRU<CR>
+nnoremap <silent> ,g :Gblame<CR>
 
 nnoremap [c :cprevious<CR>
 nnoremap ]c :cnext<CR>

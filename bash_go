@@ -2,38 +2,14 @@
 
 _jumpAndRunCommands() {
   case "$1" in
-    "web")
-      cd ~/usr/src/mt/dx-web
-      nvm use 5
+    "wxapp")
+      cd ~/Workspace/mt/youxuan/mall-wxapp
     ;;
-    "pc")
-      cd ~/usr/src/mt/dx-pc/pc-elephant-electron
-      nvm use 6
-      npm run platform
-    ;;
-    "self")
-      cd ~/usr/src/self
+    "github")
+      cd ~/Workspace/github
     ;;
     "clones")
-      cd ~/usr/src/clones
-    ;;
-    "weekly")
-      cd ~/usr/src/mt/weekly/source/_posts
-    ;;
-    "etc")
-      cd ~/etc
-    ;;
-    "vim")
-      cd ~/.vim/bundle
-    ;;
-    "downloads")
-      cd ~/Downloads
-    ;;
-    "documents")
-      cd ~/Documents
-    ;;
-    "playground")
-      cd ~/usr/src/playground
+      cd ~/Workspace/clones
     ;;
     *)
       cd "$1"
@@ -45,7 +21,7 @@ _goCompletion() {
   local cur prev opts
   cur="${COMP_WORDS[COMP_CWORD]}"
   prev="${COMP_WORDS[COMP_CWORD-1]}"
-  opts="web pc self clones weekly playground etc vim downloads documents"
+  opts="wxapp github clones"
 
   # https://www.gnu.org/software/bash/manual/html_node/Programmable-Completion-Builtins.html
   COMPREPLY=( $(compgen -o "dirnames" -W "${opts}" -- ${cur}) )
