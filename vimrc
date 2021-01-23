@@ -1,3 +1,4 @@
+" let mapleader = "<C-K>"
 source <sfile>:h/vim/theme.vim
 source <sfile>:h/vim/plugin.vim
 source <sfile>:h/vim/maps.vim
@@ -16,5 +17,5 @@ autocmd BufReadPost *
     \   exe "normal! g'\"" |
     \ endif
 
-au BufRead,BufNewFile *.thrift set filetype=thrift
-au! Syntax thrift source ~/.vim/thrift.vim
+" au BufRead,BufNewFile *.thrift set filetype=thrift
+" au! Syntax thrift source ~/.vim/thrift.vim
