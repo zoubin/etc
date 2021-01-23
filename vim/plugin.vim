@@ -49,7 +49,6 @@ nmap <leader>a0 <Plug>AirlineSelectTab0
 nmap <leader>a- <Plug>AirlineSelectPrevTab
 nmap <leader>a+ <Plug>AirlineSelectNextTab
 
-
 " https://vimawesome.com/plugin/emmet-vim
 " https://raw.githubusercontent.com/mattn/emmet-vim/master/TUTORIAL
 Plugin 'mattn/emmet-vim'
@@ -62,13 +61,17 @@ Plugin 'zoubin/vim-tabstop'
 " not support vim 8+ packages
 " https://github.com/zoubin/vim-gotofile
 Plugin 'zoubin/vim-gotofile'
-" let g:gotofile_extensions = ['.js', '.ts', '.jsx', '.es6', '.json']
+let g:gotofile_extensions = ['.js', '.ts', '.jsx', '.tsx', '.es6', '.json', '.wxml']
 
 " https://github.com/sheerun/vim-polyglot
 Plugin 'sheerun/vim-polyglot'
 
+" https://github.com/chemzqm/wxapp.vim
+Plugin 'chemzqm/wxapp.vim'
+
 " https://github.com/andymass/vim-matchup
-" Plugin 'andymass/vim-matchup'
+Plugin 'andymass/vim-matchup'
+hi MatchWord ctermfg=red guifg=blue cterm=underline gui=underline
 
 " support vim 8+ packages
 " https://vimawesome.com/plugin/surround-vim
