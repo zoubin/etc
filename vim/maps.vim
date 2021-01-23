@@ -14,8 +14,8 @@ vnoremap <silent> # :<C-U>
 
 " 重新载入配置
 " map <leader>s :source ~/.vimrc<CR>
-map <leader>0 :set number!<CR>
-map <leader>p :set paste!<CR>
+" map <leader>0 :set number!<CR>
+" map <leader>p :set paste!<CR>
 
 " visual模式修改缩进时不退出该模式
 vnoremap < <gv
@@ -44,3 +44,12 @@ cnoremap <C-E> <End>
 cnoremap <C-B> <Left>
 cnoremap <C-F> <Right>
 cnoremap <C-D> <DELETE>
+
+" plugin leader key
+" nerdtree <leader>n
+" airline  <leader>a
+" emmet    <leader>e
+" commandt <leader>t
+" fugitive <leader>f
+" ycm      <leader>y
+" undotree <leader>u

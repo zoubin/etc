@@ -50,7 +50,6 @@ nmap <leader>a- <Plug>AirlineSelectPrevTab
 nmap <leader>a+ <Plug>AirlineSelectNextTab
 
 
-" not support vim 8+ packages
 " https://vimawesome.com/plugin/emmet-vim
 " https://raw.githubusercontent.com/mattn/emmet-vim/master/TUTORIAL
 Plugin 'mattn/emmet-vim'
@@ -122,7 +121,6 @@ nnoremap <silent> <leader>tr :CommandTMRU<CR>
 "Plugin 'Konfekt/FastFold'
 
 Plugin 'tpope/vim-fugitive'
-nnoremap <silent> <leader>g :Gblame<CR>
 if !exists('autocommands_loaded')
   let autocommands_loaded = 1
   au QuickFixCmdPost *grep*,make cwindow
@@ -131,17 +129,10 @@ if !exists('autocommands_loaded')
 endif
 nnoremap [c :cprevious<CR>
 nnoremap ]c :cnext<CR>
-vnoremap <leader>k y:Ggrep <c-r>"<CR>
-nnoremap <leader>k :Ggrep <c-r><c-w><CR>
+vnoremap <leader>fk y:Ggrep <c-r>"<CR>
+nnoremap <leader>fk :Ggrep <c-r><c-w><CR>
+nnoremap <silent> <leader>f :Gblame<CR>
 "set statusline=%{fugitive#statusline()}
-
-" not support vim 8+ packages
-" Plugin 'zoubin/vim-git'
-" vnoremap <leader>K y:call git#GrepText(getreg('"'))<CR>
-" nnoremap <leader>K :call git#GrepCursorWord()<CR>
-
-" git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
 
 " https://github.com/ycm-core/YouCompleteMe
 Plugin 'valloric/youcompleteme'
@@ -169,6 +160,15 @@ let g:UltiSnipsExpandTrigger="<c-l>"
 let g:UltiSnipsJumpForwardTrigger="<c-n>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
+" https://vimawesome.com/plugin/vim-gitgutter
+Plugin 'airblade/vim-gitgutter'
+"nnoremap <leader>rl :GitGutterLineHighlightsToggle<cr>
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
+
+" https://vimawesome.com/plugin/commentary-vim
+Plugin 'tpope/vim-commentary'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -177,8 +177,3 @@ filetype plugin indent on    " required
 "
 " Put your non-Plugin stuff after this line
 " ------------------------ </vundle>
-
-" <auto-pairs> ------------------------
-" let g:AutoPairsFlyMode=1
-" ------------------------ </auto-pairs>
-

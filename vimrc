@@ -1,4 +1,4 @@
-" let mapleader = "<C-K>"
+" let mapleader = "\<C-K>"
 source <sfile>:h/vim/theme.vim
 source <sfile>:h/vim/plugin.vim
 source <sfile>:h/vim/maps.vim
