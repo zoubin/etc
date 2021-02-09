@@ -15,7 +15,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 " open a NERDTree automatically when vim starts up
 " autocmd vimenter * NERDTree
-Plugin 'scrooloose/nerdtree'
+" https://github.com/preservim/nerdtree
+Plugin 'preservim/nerdtree'
 noremap <leader>n :NERDTreeToggle<CR>
 
 " support vim 8+ packages
@@ -61,7 +62,7 @@ Plugin 'zoubin/vim-tabstop'
 " not support vim 8+ packages
 " https://github.com/zoubin/vim-gotofile
 Plugin 'zoubin/vim-gotofile'
-let g:gotofile_extensions = ['.js', '.ts', '.jsx', '.tsx', '.es6', '.json', '.wxml']
+let g:gotofile_extensions = ['.js', '.ts', '.jsx', '.tsx', '.es6', '.json', '.wxml', '.wxss']
 
 " https://github.com/sheerun/vim-polyglot
 Plugin 'sheerun/vim-polyglot'
@@ -114,12 +115,14 @@ Plugin 'wincent/command-t'
 let g:CommandTMaxFiles=200000
 let g:CommandTFileScanner='watchman'
 let g:CommandTMaxHeight=20
-"let g:CommandTWildIgnore="*/node_modules"
+let g:CommandTWildIgnore=&wildignore . ",*/node_modules,*/dist"
+let g:CommandTTraverseSCM='dir'
 let g:CommandTSmartCase=1
-nnoremap <silent> <leader>t :CommandT<CR>
-nnoremap <silent> <leader>tb :CommandTBuffer<CR>
-nnoremap <silent> <leader>tj :CommandTJump<CR>
-nnoremap <silent> <leader>tr :CommandTMRU<CR>
+nmap <silent> <Leader>tt <Plug>(CommandT)
+nmap <silent> <Leader>tb <Plug>(CommandTBuffer)
+nmap <silent> <Leader>tj <Plug>(CommandTJump)
+nmap <silent> <Leader>tr <Plug>(CommandTMRU)
+nmap <silent> <Leader>te :CommandT %:h<CR>
 
 "Plugin 'Konfekt/FastFold'
 
@@ -160,7 +163,7 @@ Plugin 'honza/vim-snippets'
 " - https://github.com/Valloric/YouCompleteMe
 " - https://github.com/nvim-lua/completion-nvim
 let g:UltiSnipsExpandTrigger="<c-l>"
-let g:UltiSnipsJumpForwardTrigger="<c-n>"
+let g:UltiSnipsJumpForwardTrigger="<c-f>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 " https://vimawesome.com/plugin/vim-gitgutter

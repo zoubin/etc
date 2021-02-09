@@ -26,6 +26,8 @@ vnoremap p pgvy
 vnoremap <leader>y "+y
 " 选中put的文本（整行）
 nnoremap <leader>v V`]
+nnoremap <leader>; mxA;<esc>`x
+inoremap <leader>; <esc>mxA;<esc>`xa
 
 " 删除行末空格
 "nnoremap <silent><leader>w :%s/\s\+$//<CR>:let @/=''<CR>
@@ -37,6 +39,30 @@ nnoremap <leader>v V`]
 " nnoremap <silent><leader>W :w !sudo tee > /dev/null %<CR>
 
 nnoremap <leader><space> :noh<CR>
+
+" https://learnvimscriptthehardway.stevelosh.com/chapters/24.html
+" fun s:ChangeExt(...)
+"   let root = expand('%:r')
+"   let cur_ext = expand('%:e')
+"   let cur_idx = index(a:000, cur_ext)
+"   let start_idx = cur_idx + 1 % len(a:000)
+"   let inputs = copy(a:000)
+"   let exts = a:000
+"   if start_idx == 1
+"     let exts = exts[1 : ]
+"   elseif start_idx > 1
+"     let exts = exts[start_idx : ] + exts[0 : start_idx - 2]
+"   endif
+"   for ext in exts
+"     let file = root . '.' . ext
+"     if filereadable(file)
+"       exec 'e ' . file
+"       return
+"     endif
+"   endfor
+"   throw 'no readable file found with root: ' . root
+" endfun
+" nnoremap <leader>os :call <SID>ChangeExt('ts', 'js', 'json', 'wxss', 'wxml')<CR>
 
 " command line edit
 cnoremap <C-A> <Home>
