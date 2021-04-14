@@ -64,6 +64,7 @@ Plugin 'zoubin/vim-tabstop'
 Plugin 'zoubin/vim-gotofile'
 let g:gotofile_extensions = ['.js', '.ts', '.jsx', '.tsx', '.es6', '.json', '.wxml', '.wxss']
 
+" autocmd BufNewFile,BufRead *.ts,*.js setlocal filetype=typescript
 " https://github.com/sheerun/vim-polyglot
 Plugin 'sheerun/vim-polyglot'
 
@@ -137,7 +138,7 @@ nnoremap [c :cprevious<CR>
 nnoremap ]c :cnext<CR>
 vnoremap <leader>fk y:Ggrep <c-r>"<CR>
 nnoremap <leader>fk :Ggrep <c-r><c-w><CR>
-nnoremap <silent> <leader>f :Gblame<CR>
+nnoremap <silent> <leader>fg :Gblame<CR>
 "set statusline=%{fugitive#statusline()}
 
 " https://github.com/ycm-core/YouCompleteMe
@@ -174,6 +175,17 @@ nmap [h <Plug>(GitGutterPrevHunk)
 
 " https://vimawesome.com/plugin/commentary-vim
 Plugin 'tpope/vim-commentary'
+
+" https://github.com/maksimr/vim-jsbeautify
+Plugin 'maksimr/vim-jsbeautify'
+" nmap <leader>b :call JsBeautify()<cr>
+autocmd FileType javascript noremap <buffer>  <leader>b :call JsBeautify()<cr>
+autocmd FileType json noremap <buffer> <leader>b :call JsonBeautify()<cr>
+autocmd FileType jsx noremap <buffer> <leader>b :call JsxBeautify()<cr>
+autocmd FileType html noremap <buffer> <leader>b :call HtmlBeautify()<cr>
+autocmd FileType wxml noremap <buffer> <leader>b :call HtmlBeautify()<cr>
+autocmd FileType wxss noremap <buffer> <leader>b :call CSSBeautify()<cr>
+autocmd FileType css noremap <buffer> <leader>b :call CSSBeautify()<cr>
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
