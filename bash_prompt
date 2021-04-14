@@ -39,7 +39,8 @@ function proml() {
 
   # https://bbs.archlinux.org/viewtopic.php?pid=1156660#p1156660
   PS1="\$(if [[ \$? == 0 ]]; then echo \"$GREEN$MARK_R\"; else echo \"$RED$MARK_W\"; fi)"
-  PS1+=" $YELLOW\u@$YELLOW\h$COLOR_END:$CYAN\w$COLOR_END"
+  # PS1+=" $YELLOW\u@$YELLOW\h$COLOR_END:$CYAN\w$COLOR_END"
+  PS1+=" $CYAN\w$COLOR_END"
   PS1+="$GREEN\$(parse_git_current_branch)$COLOR_END"
   PS1+=" $PURPLE\$(node -v)$COLOR_END"
   PS1+="\n"
