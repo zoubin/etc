@@ -41,28 +41,15 @@ inoremap <leader>; <esc>mxA;<esc>`xa
 nnoremap <leader><space> :noh<CR>
 
 " https://learnvimscriptthehardway.stevelosh.com/chapters/24.html
-" fun s:ChangeExt(...)
-"   let root = expand('%:r')
-"   let cur_ext = expand('%:e')
-"   let cur_idx = index(a:000, cur_ext)
-"   let start_idx = cur_idx + 1 % len(a:000)
-"   let inputs = copy(a:000)
-"   let exts = a:000
-"   if start_idx == 1
-"     let exts = exts[1 : ]
-"   elseif start_idx > 1
-"     let exts = exts[start_idx : ] + exts[0 : start_idx - 2]
-"   endif
-"   for ext in exts
-"     let file = root . '.' . ext
-"     if filereadable(file)
-"       exec 'e ' . file
-"       return
-"     endif
-"   endfor
-"   throw 'no readable file found with root: ' . root
-" endfun
-" nnoremap <leader>os :call <SID>ChangeExt('ts', 'js', 'json', 'wxss', 'wxml')<CR>
+fun s:ChangeExt(...)
+  let root = expand('%:r')
+  let cur_ext = expand('%:e')
+  let cur_idx = index(a:000, cur_ext)
+  let start_idx = (cur_idx + 1) % len(a:000)
+  let next_ext = a:000[start_idx]
+  exe 'e ' . root . '.' . next_ext
+endfun
+nnoremap <leader>ce :call <SID>ChangeExt('ts', 'wxss', 'wxml', 'js', 'json')<CR>
 
 " command line edit
 cnoremap <C-A> <Home>
