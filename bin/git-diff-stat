@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-echo `git diff -b -w --ignore-blank-lines --numstat "$@" | colsum -n 1 -n 2`
