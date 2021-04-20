@@ -40,16 +40,35 @@ inoremap <leader>; <esc>mxA;<esc>`xa
 
 nnoremap <leader><space> :noh<CR>
 
+let s:exts = ['ts', 'wxss', 'wxml', 'js', 'json']
 " https://learnvimscriptthehardway.stevelosh.com/chapters/24.html
-fun s:ChangeExt(...)
+fun s:ChangeExt(dir)
   let root = expand('%:r')
   let cur_ext = expand('%:e')
-  let cur_idx = index(a:000, cur_ext)
-  let start_idx = (cur_idx + 1) % len(a:000)
-  let next_ext = a:000[start_idx]
-  exe 'e ' . root . '.' . next_ext
+  let cur_idx = index(s:exts, cur_ext)
+  if cur_idx == -1
+    return
+  end
+  let l = len(s:exts)
+  let j = 1
+  while j < l
+    if a:dir == 'next'
+      let start_idx = (cur_idx + j) % l
+    else
+      let start_idx = (cur_idx - j + l) % l
+    end
+    let file = root . '.' . s:exts[start_idx]
+    if filereadable(file)
+      exe 'e ' . file
+      return
+    end
+    let j = j + 1
+  endw
 endfun
-nnoremap <leader>ce :call <SID>ChangeExt('ts', 'wxss', 'wxml', 'js', 'json')<CR>
+nnoremap ]e :call <SID>ChangeExt('next')<CR>
+nnoremap [e :call <SID>ChangeExt('prev')<CR>
+
+inoremap <leader>ww <esc>:w<CR>
 
 " command line edit
 cnoremap <C-A> <Home>
