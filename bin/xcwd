@@ -1,0 +1,27 @@
+#!/bin/bash -i
+# add -i, so that functions defined in .bashrc will be available here. Yet aliases still don't work
+# git x <dirs...> -- clone|pull|push|grep|config|checkout
+paths=()
+# https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash
+while [[ "$1" != "--" ]]; do
+  paths+=($1)
+  shift
+done
+shift
+if [[ $# == 0 ]]; then
+  echo "No command specified!"
+  exit 1
+fi
+
+# echo "${paths[@]}"
+# https://askubuntu.com/questions/98782/how-to-run-an-alias-in-a-shell-script
+for path in "${paths[@]}"
+do
+  if [[ -d $path ]]; then
+    echo -e "\033[0;31m# \033[4m$path\033[0m\033[24m"
+    cd $path > /dev/null
+    "$@"
+    cd - > /dev/null
+  fi
+done
+
