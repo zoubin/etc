@@ -68,6 +68,9 @@ endfun
 nnoremap ]e :call <SID>ChangeExt('next')<CR>
 nnoremap [e :call <SID>ChangeExt('prev')<CR>
 
+nnoremap ]q :cnext<cr>
+nnoremap [q :cprev<cr>
+
 inoremap <leader>ww <esc>:w<CR>
 
 " command line edit

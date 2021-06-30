@@ -37,18 +37,18 @@ set laststatus=2
 " disable per-buffer
 "let b:airline_disable_statusline = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
-nmap <leader>a1 <Plug>AirlineSelectTab1
-nmap <leader>a2 <Plug>AirlineSelectTab2
-nmap <leader>a3 <Plug>AirlineSelectTab3
-nmap <leader>a4 <Plug>AirlineSelectTab4
-nmap <leader>a5 <Plug>AirlineSelectTab5
-nmap <leader>a6 <Plug>AirlineSelectTab6
-nmap <leader>a7 <Plug>AirlineSelectTab7
-nmap <leader>a8 <Plug>AirlineSelectTab8
-nmap <leader>a9 <Plug>AirlineSelectTab9
-nmap <leader>a0 <Plug>AirlineSelectTab0
-nmap <leader>a- <Plug>AirlineSelectPrevTab
-nmap <leader>a+ <Plug>AirlineSelectNextTab
+nmap <leader>b1 <Plug>AirlineSelectTab1
+nmap <leader>b2 <Plug>AirlineSelectTab2
+nmap <leader>b3 <Plug>AirlineSelectTab3
+nmap <leader>b4 <Plug>AirlineSelectTab4
+nmap <leader>b5 <Plug>AirlineSelectTab5
+nmap <leader>b6 <Plug>AirlineSelectTab6
+nmap <leader>b7 <Plug>AirlineSelectTab7
+nmap <leader>b8 <Plug>AirlineSelectTab8
+nmap <leader>b9 <Plug>AirlineSelectTab9
+nmap <leader>b0 <Plug>AirlineSelectTab0
+nmap gB <Plug>AirlineSelectPrevTab
+nmap gb <Plug>AirlineSelectNextTab
 
 " https://vimawesome.com/plugin/emmet-vim
 " https://raw.githubusercontent.com/mattn/emmet-vim/master/TUTORIAL
@@ -145,6 +145,7 @@ nnoremap <silent> <leader>fg :Gblame<CR>
 Plugin 'valloric/youcompleteme'
 nnoremap <leader>yd :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>yf :YcmCompleter GoToDefinition<CR>
+let g:ycm_max_diagnostics_to_display = 0
 
 " https://vimawesome.com/plugin/undotree-vim
 Plugin 'mbbill/undotree'
