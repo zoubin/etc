@@ -188,6 +188,9 @@ autocmd FileType wxml noremap <buffer> <leader>b :call HtmlBeautify()<cr>
 autocmd FileType wxss noremap <buffer> <leader>b :call CSSBeautify()<cr>
 autocmd FileType css noremap <buffer> <leader>b :call CSSBeautify()<cr>
 
+" https://github.com/wsdjeg/vim-fetch
+Plugin 'wsdjeg/vim-fetch'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required

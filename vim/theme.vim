@@ -7,6 +7,9 @@ set fileencodings=utf-8,gbk
 "文件默认格式unix
 set ff=unix
 
+" https://vi.stackexchange.com/questions/15944/how-to-display-in-the-statusline-the-number-of-matches-from-a-search
+set shortmess-=S
+
 "自动缩进
 set autoindent
 "显示标签栏 0: 从不 1: 大于1个时显示 2: 总是
