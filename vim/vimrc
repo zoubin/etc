@@ -1,0 +1,5 @@
+" 各种set options
+source <sfile>:h/theme.vim
+source <sfile>:h/tools.vim
+source <sfile>:h/plugin.vim
+

@@ -2,8 +2,8 @@
 
 _jumpAndRunCommands() {
   case "$1" in
-    "wxapp")
-      cd ~/Workspace/mt/youxuan/mall-wxapp
+    "act")
+      cd ~/Workspace/mt/dache/act
     ;;
     "github")
       cd ~/Workspace/github

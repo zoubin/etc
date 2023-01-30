@@ -1,5 +1,5 @@
 " <vundle> ------------------------
-" https://github.com/gmarik/Vundle.vim
+" https://github.com/VundleVim/Vundle.vim
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -10,123 +10,42 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
 
-" open a NERDTree automatically when vim starts up
-" autocmd vimenter * NERDTree
-" https://github.com/preservim/nerdtree
-Plugin 'preservim/nerdtree'
-noremap <leader>n :NERDTreeToggle<CR>
+" https://vimcolorschemes.com/
+Plugin 'morhetz/gruvbox'
+" set background=dark
+" https://github.com/morhetz/gruvbox/wiki/Installation
+autocmd vimenter * ++nested colorscheme gruvbox
 
-" support vim 8+ packages
-" https://vimawesome.com/plugin/vim-airline-superman
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-let g:airline_theme = 'solarized'
-let g:airline_solarized_bg='dark'
-"let g:airline_statusline_ontop=1
-let g:airline#extensions#tabline#enabled = 1
-" display the statusline always, even when there is only one window
-set laststatus=2
-"https://github.com/vim-airline/vim-airline/wiki/FAQ
-"let g:airline_powerline_fonts = 1
-"* Disable setting the statusline option: >
-" disable globally
-"let g:airline_disable_statusline = 1
-" disable per-buffer
-"let b:airline_disable_statusline = 1
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-nmap <leader>b1 <Plug>AirlineSelectTab1
-nmap <leader>b2 <Plug>AirlineSelectTab2
-nmap <leader>b3 <Plug>AirlineSelectTab3
-nmap <leader>b4 <Plug>AirlineSelectTab4
-nmap <leader>b5 <Plug>AirlineSelectTab5
-nmap <leader>b6 <Plug>AirlineSelectTab6
-nmap <leader>b7 <Plug>AirlineSelectTab7
-nmap <leader>b8 <Plug>AirlineSelectTab8
-nmap <leader>b9 <Plug>AirlineSelectTab9
-nmap <leader>b0 <Plug>AirlineSelectTab0
-nmap gB <Plug>AirlineSelectPrevTab
-nmap gb <Plug>AirlineSelectNextTab
-
-" https://vimawesome.com/plugin/emmet-vim
-" https://raw.githubusercontent.com/mattn/emmet-vim/master/TUTORIAL
-Plugin 'mattn/emmet-vim'
-let g:user_emmet_leader_key = '<leader>e'
-
-" not support vim 8+ packages
-" :Tabstop [count]
 Plugin 'zoubin/vim-tabstop'
-
-" not support vim 8+ packages
-" https://github.com/zoubin/vim-gotofile
 Plugin 'zoubin/vim-gotofile'
-let g:gotofile_extensions = ['.js', '.ts', '.jsx', '.tsx', '.es6', '.json', '.wxml', '.wxss']
 
-" autocmd BufNewFile,BufRead *.ts,*.js setlocal filetype=typescript
-" https://github.com/sheerun/vim-polyglot
+Plugin 'preservim/nerdtree'
+
+let g:user_emmet_leader_key = '<leader>e'
+Plugin 'mattn/emmet-vim'
+
 Plugin 'sheerun/vim-polyglot'
+" let g:vue_pre_processors = ['pug', 'scss']
 
-" https://github.com/chemzqm/wxapp.vim
 Plugin 'chemzqm/wxapp.vim'
 
 " https://github.com/andymass/vim-matchup
 Plugin 'andymass/vim-matchup'
-hi MatchWord ctermfg=red guifg=blue cterm=underline gui=underline
+augroup matchup_matchparen_highlight
+  autocmd!
+  autocmd ColorScheme * hi MatchWord ctermfg=red guifg=blue cterm=underline gui=underline
+augroup END
 
-" support vim 8+ packages
-" https://vimawesome.com/plugin/surround-vim
-Plugin 'tpope/vim-surround'
+" fuzzy file find
+" https://github.com/junegunn/fzf/blob/master/README-VIM.md
+Plugin 'junegunn/fzf'
+" https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md
+let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore --hidden --glob "!.git/*"'
+Plugin 'junegunn/fzf.vim'
 
-" autoclose与neocomplete有一处不兼容的问题，插入模式下如果有补全窗口时，需要按两次esc才能回到插入模式。用auto-pairs则ok
-" Plugin 'Townk/vim-autoclose'
-" https://vimawesome.com/plugin/auto-pairs
-Plugin 'jiangmiao/auto-pairs'
-
-"ctrlp is slower than command-t in big project, really
-"Plugin 'ctrlpvim/ctrlp.vim'
-"let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:20'
-"let g:ctrlp_max_files = 0
-" Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-"let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-" ag is fast enough that CtrlP doesn't need to cache
-"let g:ctrlp_use_caching = 0
-"let g:ctrlp_custom_ignore = {
-"      \ 'dir':  '\v[\/](node_modules)',
-"      \ 'file': '\v\.(exe|so|dll)$'
-"      \ }
-"if exists("g:ctrlp_user_command")
-"  unlet g:ctrlp_user_command
-"endif
-"if executable('ag')
-"  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-"  let g:ctrlp_user_command =
-"    \ 'ag %s --files-with-matches -g "" --ignore "\.git$\|\.hg$\|\.svn$"'
-"
-"  " ag is fast enough that CtrlP doesn't need to cache
-"  let g:ctrlp_use_caching = 0
-"else
-"  " Fall back to using git ls-files if Ag is not available
-"  let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
-"  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
-"endif
-
-Plugin 'wincent/command-t'
-let g:CommandTMaxFiles=200000
-let g:CommandTFileScanner='watchman'
-let g:CommandTMaxHeight=20
-let g:CommandTWildIgnore=&wildignore . ",*/node_modules,*/dist"
-let g:CommandTTraverseSCM='dir'
-let g:CommandTSmartCase=1
-nmap <silent> <Leader>tt <Plug>(CommandT)
-nmap <silent> <Leader>tb <Plug>(CommandTBuffer)
-nmap <silent> <Leader>tj <Plug>(CommandTJump)
-nmap <silent> <Leader>tr <Plug>(CommandTMRU)
-nmap <silent> <Leader>te :CommandT %:h<CR>
-
-"Plugin 'Konfekt/FastFold'
-
+" git plugin
+" https://github.com/tpope/vim-fugitive
 Plugin 'tpope/vim-fugitive'
 if !exists('autocommands_loaded')
   let autocommands_loaded = 1
@@ -134,68 +53,259 @@ if !exists('autocommands_loaded')
   au BufNewFile,BufRead *.js setlocal makeprg=standard\ %
   au BufNewFile,BufRead *.js nmap <buffer> ,s :make<CR>
 endif
-nnoremap [c :cprevious<CR>
-nnoremap ]c :cnext<CR>
-vnoremap <leader>fk y:Ggrep <c-r>"<CR>
-nnoremap <leader>fk :Ggrep <c-r><c-w><CR>
-nnoremap <silent> <leader>fg :Gblame<CR>
-"set statusline=%{fugitive#statusline()}
+" set statusline=%{fugitive#statusline()}
 
-" https://github.com/ycm-core/YouCompleteMe
-Plugin 'valloric/youcompleteme'
-nnoremap <leader>yd :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>yf :YcmCompleter GoToDefinition<CR>
-let g:ycm_max_diagnostics_to_display = 0
+" git hunks。感觉有点慢，关了再试用一段时间
+" https://github.com/airblade/vim-gitgutter
+" Plugin 'airblade/vim-gitgutter'
 
-" https://vimawesome.com/plugin/undotree-vim
-Plugin 'mbbill/undotree'
-nnoremap <leader>u :UndotreeToggle<cr>
-if has("persistent_undo")
-  set undodir=~/.undodir/
-  set undofile
-endif
+" Plugin 'vim-airline/vim-airline'
+" Plugin 'vim-airline/vim-airline-themes'
+" https://github.com/vim-airline/vim-airline/wiki/Screenshots
+" let g:airline_theme = 'murmur'
+" let g:airline_solarized_bg='dark'
+" let g:airline#extensions#tabline#enabled = 1
 
-" https://github.com/sirver/ultisnips
-" Track the engine.
-Plugin 'SirVer/ultisnips'
-" Snippets are separated from the engine. Add this if you want them:
-" https://vimawesome.com/plugin/vim-snippets
-Plugin 'honza/vim-snippets'
-" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
-" - https://github.com/Valloric/YouCompleteMe
-" - https://github.com/nvim-lua/completion-nvim
-let g:UltiSnipsExpandTrigger="<c-l>"
-let g:UltiSnipsJumpForwardTrigger="<c-f>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+Plugin 'tpope/vim-surround'
 
-" https://vimawesome.com/plugin/vim-gitgutter
-Plugin 'airblade/vim-gitgutter'
-"nnoremap <leader>rl :GitGutterLineHighlightsToggle<cr>
-nmap ]h <Plug>(GitGutterNextHunk)
-nmap [h <Plug>(GitGutterPrevHunk)
+Plugin 'jiangmiao/auto-pairs'
 
-" https://vimawesome.com/plugin/commentary-vim
-Plugin 'tpope/vim-commentary'
+" 为了在vue中添加注释，需要同时使用以下两个插件
+" https://github.com/posva/vim-vue#how-to-use-commenting-functionality-with-multiple-languages-in-vue-files
+Plugin 'tyru/caw.vim'
+Plugin 'Shougo/context_filetype.vim'
 
-" https://github.com/maksimr/vim-jsbeautify
-Plugin 'maksimr/vim-jsbeautify'
-" nmap <leader>b :call JsBeautify()<cr>
-autocmd FileType javascript noremap <buffer>  <leader>b :call JsBeautify()<cr>
-autocmd FileType json noremap <buffer> <leader>b :call JsonBeautify()<cr>
-autocmd FileType jsx noremap <buffer> <leader>b :call JsxBeautify()<cr>
-autocmd FileType html noremap <buffer> <leader>b :call HtmlBeautify()<cr>
-autocmd FileType wxml noremap <buffer> <leader>b :call HtmlBeautify()<cr>
-autocmd FileType wxss noremap <buffer> <leader>b :call CSSBeautify()<cr>
-autocmd FileType css noremap <buffer> <leader>b :call CSSBeautify()<cr>
+" allows plugins that work with language servers
+" coc-snippets": ">=3.1.5",
+let g:coc_global_extensions = [
+  \ 'coc-tsserver',
+  \ 'coc-fzf-preview',
+  \ 'coc-tabnine',
+  \ 'coc-eslint',
+  \ 'coc-stylelint',
+  \ 'coc-vetur',
+  \ 'coc-css',
+  \ 'coc-prettier',
+  \ 'coc-html',
+  \ 'coc-json',
+  \ 'coc-vimlsp',
+  \ 'coc-thrift-syntax-support',
+  \ 'coc-snippets',
+  \ 'coc-git'
+  \ ]
+Plugin 'neoclide/coc.nvim'
+" TextEdit might fail if hidden is not set.
+set hidden
+" Some servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
+set cmdheight=1
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
 
-" https://github.com/wsdjeg/vim-fetch
-Plugin 'wsdjeg/vim-fetch'
+" status line
+" https://github.com/itchyny/lightline.vim
+" lightline
+let g:lightline = {
+  \ 'active': {
+  \   'left': [
+  \     [ 'mode', 'paste' ],
+  \     [ 'gitbranch', 'cocstatus', 'relativepath' ]
+  \   ],
+  \   'right':[
+  \     [ 'filetype' ],
+  \     [ 'blame' ]
+  \   ],
+  \ },
+  \ 'component_function': {
+  \   'blame': 'LightlineGitBlame',
+  \   'gitbranch': 'FugitiveHead',
+  \ }
+\ }
+function! LightlineGitBlame() abort
+  let blame = get(b:, 'coc_git_blame', '')
+  " return blame
+  return winwidth(0) > 120 ? blame : ''
+endfunction
+Plugin 'itchyny/lightline.vim'
+set noshowmode
+autocmd User CocGitStatusChange {command}
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+" 打开语法高亮
+syntax enable
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
 " Put your non-Plugin stuff after this line
 " ------------------------ </vundle>
+
+" 切换时维持目录树定位在当前文件位置
+map <silent> <leader>n :call <SID>toggleNERDTreeFind()<CR>
+function! s:toggleNERDTreeFind()
+  if g:NERDTree.ExistsForTab() && g:NERDTree.IsOpen()
+    execute 'NERDTreeClose'
+  else
+    execute 'NERDTreeFind'
+  endif
+endfunction
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+" 文件预览
+" https://github.com/yuki-yano/fzf-preview.vim/blob/main/doc/fzf_preview_vim.txt
+nmap <leader>f [fzf-p]
+xmap <leader>f [fzf-p]
+nnoremap <silent> [fzf-p]o     :<C-u>CocCommand fzf-preview.FromResources buffer project_mru<CR>
+nnoremap <silent> [fzf-p]O     :<C-u>CocCommand fzf-preview.FromResources project_mru git<CR>
+nnoremap <silent> [fzf-p]j     :<C-u>CocCommand fzf-preview.Jumps<CR>
+" nnoremap <silent> [fzf-p]g;    :<C-u>CocCommand fzf-preview.Changes<CR>
+map <silent> <leader>ff :Files<CR>
+nmap <silent> <leader>fb :Buffers<CR>
+
+" Git操作
+nmap <leader>g [git]
+xmap <leader>g [git]
+nnoremap <silent> [git]s    :<C-u>CocCommand fzf-preview.GitStatus<CR>
+nnoremap [git]r    :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
+xnoremap [git]r    "sy:CocCommand   fzf-preview.ProjectGrep<Space>-F<Space>"<C-r>=substitute(substitute(@s, '\n', '', 'g'), '/', '\\/', 'g')<CR>"
+nmap [git]g [git]r <c-r><c-w><CR>
+" vnoremap [git]g [git]r <c-r>"<CR>
+" Run FzfPreviewProjectGrep with the same arguments as before.
+nmap [git]h :CocCommand fzf-preview.ProjectGrepRecall<CR>
+nnoremap <silent> [git]b :Git blame<CR>
+
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: There's always complete item selected by default, you may want to enable
+" no select by `"suggest.noselect": true` in your configuration file.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+" inoremap <silent><expr> <TAB>
+"       \ coc#pum#visible() ? coc#pum#next(1) :
+"       \ CheckBackspace() ? "\<Tab>" :
+"       \ coc#refresh()
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ CheckBackspace() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+let g:coc_snippet_next = '<tab>'
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Map function and class text objects
+" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+" xmap ic <Plug>(coc-classobj-i)
+" omap ic <Plug>(coc-classobj-i)
+" xmap ac <Plug>(coc-classobj-a)
+" omap ac <Plug>(coc-classobj-a)
+
+" Remap <C-f> and <C-b> for scroll float windows/popups.
+" Note coc#float#scroll works on neovim >= 0.4.0 or vim >= 8.2.0750
+nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+vnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#nvim_scroll(1, 1) : "\<C-f>"
+vnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#nvim_scroll(0, 1) : "\<C-b>"
+
+" Use CTRL-S for selections ranges.
+" Requires 'textDocument/selectionRange' support of language server.
+" nmap <silent> <C-s> <Plug>(coc-range-select)
+" xmap <silent> <C-s> <Plug>(coc-range-select)
+
+" Add `:Format` command to format current buffer.
+" command! -nargs=0 Format :call CocAction('format')
+
+" Add `:Fold` command to fold current buffer.
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" Add `:OR` command for organize imports of the current buffer.
+" command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Mappings for CoCList
+" Show all diagnostics.
+nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions.
+" nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+" Show commands.
+nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document.
+" nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols.
+" nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+" nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+" nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list.
+" nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+nmap ]b <Plug>AirlineSelectNextTab
+nmap [b <Plug>AirlineSelectPrevTab
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gD <Plug>(coc-type-definition)
+nmap <silent> gs :sp<CR><Plug>(coc-definition)
+nmap <silent> gS :vsp<CR><Plug>(coc-definition)
+" nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use `[d` and `]d` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [e <Plug>(coc-diagnostic-prev-error)
+nmap <silent> ]e <Plug>(coc-diagnostic-next-error)
+nmap <silent> [d <Plug>(coc-diagnostic-prev)
+nmap <silent> ]d <Plug>(coc-diagnostic-next)
+
+" navigate chunks of current buffer
+nmap [g <Plug>(coc-git-prevchunk)
+nmap ]g <Plug>(coc-git-nextchunk)
+" navigate conflicts of current buffer
+" nmap [c <Plug>(coc-git-prevconflict)
+" nmap ]c <Plug>(coc-git-nextconflict)
+" show chunk diff at current position
+nmap gb <Plug>(coc-git-chunkinfo)
+" show commit contains current position
+" nmap gc <Plug>(coc-git-commit)
+" create text object for git chunks
+" omap ig <Plug>(coc-git-chunk-inner)
+" xmap ig <Plug>(coc-git-chunk-inner)
+" omap ag <Plug>(coc-git-chunk-outer)
+" xmap ag <Plug>(coc-git-chunk-outer)

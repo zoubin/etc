@@ -1,6 +1,3 @@
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
 # alias grep='grep --color=auto'
 function ls() {
   command ls -GF "$@"
