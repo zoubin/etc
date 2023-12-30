@@ -1,5 +1,5 @@
 " be iMproved, required
-set nocompatible
+" set nocompatible
 " 文件默认编码。支持中文显示。+multi_byte
 set enc=utf-8
 "文件保存时使用的编码 打开文件进行解码的猜测列表，优先以utf-8打开
@@ -13,7 +13,7 @@ set mouse=v
 " 当前行背景
 set cursorline
 " column启动后会明显变卡顿
-" set cursorcolumn
+set cursorcolumn
 "搜索时高亮显示结果
 set hls
 "输入搜索命令时，显示目前输入的模式的匹配位置
@@ -63,3 +63,5 @@ set laststatus=2
 " CTRL-H=BACKSPACE, 删除
 " set backspace=indent,eol,start
 
+" some plugin has added -
+set iskeyword-=-

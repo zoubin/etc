@@ -16,3 +16,7 @@ alias mnpm="npm --registry=http://r.npm.sankuai.com \
 --cache=$HOME/.cache/mnpm \
 --disturl=http://npm.sankuai.com/mirrors/node \
 --userconfig=$HOME/.mnpmrc"
+alias cnpm="npm --registry=https://registry.npmmirror.com \
+--cache=$HOME/.npm/.cache/cnpm \
+--disturl=https://npmmirror.com/mirrors/node \
+--userconfig=$HOME/.cnpmrc"

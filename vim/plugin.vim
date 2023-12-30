@@ -20,7 +20,7 @@ autocmd vimenter * ++nested colorscheme gruvbox
 Plugin 'zoubin/vim-tabstop'
 Plugin 'zoubin/vim-gotofile'
 
-Plugin 'preservim/nerdtree'
+" Plugin 'preservim/nerdtree'
 
 let g:user_emmet_leader_key = '<leader>e'
 Plugin 'mattn/emmet-vim'
@@ -29,6 +29,7 @@ Plugin 'sheerun/vim-polyglot'
 " let g:vue_pre_processors = ['pug', 'scss']
 
 Plugin 'chemzqm/wxapp.vim'
+Plugin 'honza/vim-snippets'
 
 " https://github.com/andymass/vim-matchup
 Plugin 'andymass/vim-matchup'
@@ -91,6 +92,7 @@ let g:coc_global_extensions = [
   \ 'coc-vimlsp',
   \ 'coc-thrift-syntax-support',
   \ 'coc-snippets',
+  \ 'coc-explorer',
   \ 'coc-git'
   \ ]
 Plugin 'neoclide/coc.nvim'
@@ -104,7 +106,19 @@ set cmdheight=1
 " delays and poor user experience.
 set updatetime=300
 " Don't pass messages to |ins-completion-menu|.
-set shortmess+=c
+" set shortmess+=c
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved
+" set signcolumn=yes
+" Use K to show documentation in preview window
+nnoremap <silent> K :call ShowDocumentation()<CR>
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
 
 " status line
 " https://github.com/itchyny/lightline.vim
@@ -134,6 +148,8 @@ Plugin 'itchyny/lightline.vim'
 set noshowmode
 autocmd User CocGitStatusChange {command}
 
+" Plugin 'github/copilot.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -146,16 +162,18 @@ syntax enable
 " ------------------------ </vundle>
 
 " 切换时维持目录树定位在当前文件位置
-map <silent> <leader>n :call <SID>toggleNERDTreeFind()<CR>
-function! s:toggleNERDTreeFind()
-  if g:NERDTree.ExistsForTab() && g:NERDTree.IsOpen()
-    execute 'NERDTreeClose'
-  else
-    execute 'NERDTreeFind'
-  endif
-endfunction
+" map <silent> <leader>n :call <SID>toggleNERDTreeFind()<CR>
+" function! s:toggleNERDTreeFind()
+"   if g:NERDTree.ExistsForTab() && g:NERDTree.IsOpen()
+"     execute 'NERDTreeClose'
+"   else
+"     execute 'NERDTreeFind'
+"   endif
+" endfunction
 " Exit Vim if NERDTree is the only window remaining in the only tab.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+" autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+nmap <silent> <leader>n <Cmd>CocCommand explorer<CR>
 
 " 文件预览
 " https://github.com/yuki-yano/fzf-preview.vim/blob/main/doc/fzf_preview_vim.txt
@@ -309,3 +327,7 @@ nmap gb <Plug>(coc-git-chunkinfo)
 " xmap ig <Plug>(coc-git-chunk-inner)
 " omap ag <Plug>(coc-git-chunk-outer)
 " xmap ag <Plug>(coc-git-chunk-outer)
+
+" https://stackoverflow.com/questions/27235102/vim-randomly-breaks-syntax-highlighting
+autocmd BufEnter * syntax sync fromstart
+
