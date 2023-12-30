@@ -11,11 +11,6 @@ export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# https://km.sankuai.com/page/127620956
-alias mnpm="npm --registry=http://r.npm.sankuai.com \
---cache=$HOME/.cache/mnpm \
---disturl=http://npm.sankuai.com/mirrors/node \
---userconfig=$HOME/.mnpmrc"
 alias cnpm="npm --registry=https://registry.npmmirror.com \
 --cache=$HOME/.npm/.cache/cnpm \
 --disturl=https://npmmirror.com/mirrors/node \
